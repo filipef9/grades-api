@@ -20,9 +20,17 @@ const app = express();
 //define o dominio de origem para consumo do servico
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const whiteList = ["https://igti-filipe-fsn-grades-app.herokuapp.com", "http://localhost:3000", "http://localhost:5000"];
 app.use(
   cors({
-    origin: "https://igti-filipe-fsn-grades-app.herokuapp.com",
+    origin: (origin, callback) => {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
   })
 );
 
