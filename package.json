@@ -20,7 +20,6 @@
   },
   "type": "module",
   "devDependencies": {
-    "heroku": "^7.52.0",
     "nodemon": "^2.0.7"
   }
 }
