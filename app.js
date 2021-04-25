@@ -25,7 +25,7 @@ const whiteList = ["https://igti-filipe-fsn-grades-app.herokuapp.com", "http://l
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (whitelist.indexOf(origin) !== -1) {
+      if (whiteList.indexOf(origin) !== -1) {
         callback(null, true)
       } else {
         callback(new Error('Not allowed by CORS'))
